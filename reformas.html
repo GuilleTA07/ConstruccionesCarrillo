@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Reformas | Construcciones Carrillo</title>
+
+<link rel="icon" href="C:/Users/guill/Downloads/Construcciones-Carrillo/logo.png">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial, Helvetica, sans-serif;
+  transition:
+  background-color 0.45s ease,
+  background 0.45s ease,
+  color 0.45s ease,
+  border-color 0.45s ease,
+  box-shadow 0.45s ease,
+  transform 0.45s ease,
+  filter 0.45s ease;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  background:#f5f5f5;
+  overflow-x:hidden;
+}
+
+header{
+  width:100%;
+  height:95px;
+  background:rgba(255,255,255,0.95);
+  backdrop-filter:blur(10px);
+  border-bottom:2px solid rgba(11,33,73,0.08);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 70px;
+  position:fixed;
+  top:0;
+  z-index:1000;
+}
+
+.logo img{
+  height:72px;
+}
+
+nav{
+  display:flex;
+  align-items:center;
+  gap:35px;
+}
+
+nav a{
+  text-decoration:none;
+  color:#0b2149;
+  font-weight:700;
+  font-size:17px;
+  position:relative;
+}
+
+nav a::after{
+  content:"";
+  position:absolute;
+  width:0%;
+  height:2px;
+  left:0;
+  bottom:-6px;
+  background:#d4a017;
+}
+
+nav a:hover{
+  color:#d4a017;
+}
+
+nav a:hover::after{
+  width:100%;
+}
+
+.switch{
+  position:relative;
+  width:68px;
+  height:35px;
+}
+
+.switch input{
+  display:none;
+}
+
+.slider{
+  position:absolute;
+  inset:0;
+  background:#0b2149;
+  border-radius:50px;
+  cursor:pointer;
+}
+
+.slider::before{
+  content:"🌙";
+  position:absolute;
+  width:29px;
+  height:29px;
+  top:3px;
+  left:3px;
+  background:white;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:
+  transform 0.45s cubic-bezier(.68,-0.55,.27,1.55),
+  background 0.3s ease;
+}
+
+input:checked + .slider{
+  background:#d4a017;
+}
+
+input:checked + .slider::before{
+  transform:translateX(33px) rotate(360deg);
+  content:"☀️";
+}
+
+
+
+section{
+  padding:120px 12%;
+}
+
+h2{
+  font-size:46px;
+  color:#0b2149;
+  margin-bottom:25px;
+}
+
+.section-text{
+  font-size:19px;
+  line-height:1.9;
+  color:#555;
+}
+
+.mini-hero{
+  padding:170px 12% 90px 12%;
+  background:white;
+  text-align:center;
+  border-bottom:1px solid rgba(11,33,73,0.08);
+  position:relative;
+}
+
+.mini-hero::after{
+  content:"";
+  width:120px;
+  height:4px;
+  background:#d4a017;
+  border-radius:20px;
+  position:absolute;
+  bottom:40px;
+  left:50%;
+  transform:translateX(-50%);
+}
+
+.mini-hero h1{
+  font-size:52px;
+  color:#0b2149;
+  margin-bottom:20px;
+}
+
+.mini-hero p{
+  font-size:20px;
+  color:#555;
+  max-width:850px;
+  margin:auto;
+  line-height:1.8;
+}
+
+.info-reformas{
+  background:white;
+}
+
+.servicios{
+  background:linear-gradient(135deg,#f3f3f3,#ebebeb);
+}
+
+.servicios-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:30px;
+  margin-top:50px;
+}
+
+.servicio{
+  background:white;
+  padding:40px;
+  border-radius:24px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.08);
+}
+
+.servicio:hover{
+  transform:translateY(-10px);
+}
+
+.servicio i{
+  font-size:40px;
+  color:#d4a017;
+  margin-bottom:25px;
+}
+
+.servicio h3{
+  margin-bottom:15px;
+  color:#0b2149;
+}
+
+.servicio p{
+  line-height:1.8;
+  color:#555;
+}
+
+.contacto{
+  background:
+  linear-gradient(rgba(11,33,73,0.92), rgba(11,33,73,0.96)),
+  url("contacto.jpg");
+  background-size:cover;
+  background-position:center;
+  color:white;
+}
+
+.contacto h2{
+  color:white;
+}
+
+.contacto-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:30px;
+  margin-top:50px;
+  align-items:stretch;
+}
+
+.contact-card{
+  background:rgba(255,255,255,0.08);
+  backdrop-filter:blur(10px);
+  border:1px solid rgba(255,255,255,0.12);
+  padding:40px 30px;
+  border-radius:26px;
+  text-align:center;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  min-height:280px;
+}
+
+.contact-card:hover{
+  transform:translateY(-8px);
+}
+
+.contact-card i{
+  font-size:34px;
+  color:#d4a017;
+  margin-bottom:20px;
+}
+
+.contact-card h3{
+  margin-bottom:18px;
+  font-size:23px;
+}
+
+.contact-card p,
+.contact-card a{
+  color:#f0f0f0;
+  text-decoration:none;
+  line-height:1.9;
+  font-size:16px;
+}
+
+.socials{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:20px;
+  margin-top:25px;
+}
+
+.socials a{
+  width:58px;
+  height:58px;
+  border-radius:50%;
+  background:rgba(255,255,255,0.1);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:white;
+  font-size:24px;
+  overflow:hidden;
+  position:relative;
+}
+
+.socials a:hover{
+  background:#d4a017;
+  transform:translateY(-5px);
+}
+
+.socials a i{
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  line-height:1;
+}
+
+footer{
+  background:#08162f;
+  color:#dcdcdc;
+  text-align:center;
+  padding:35px;
+}
+
+footer p{
+  font-size:15px;
+  letter-spacing:1px;
+}
+
+body.dark{
+  background:#050505;
+}
+
+body.dark header{
+  background:rgba(5,5,5,0.95);
+}
+
+body.dark nav a{
+  color:#f1f1f1;
+}
+
+body.dark .mini-hero{
+  background:#0d0d0d;
+  border-bottom:1px solid rgba(255,255,255,0.08);
+}
+
+body.dark .mini-hero h1,
+body.dark .mini-hero p{
+  color:white;
+}
+
+body.dark .info-reformas{
+  background:#0d0d0d;
+}
+
+body.dark .servicios{
+  background:#161616;
+}
+
+body.dark h2,
+body.dark .section-text,
+body.dark .servicio h3,
+body.dark .servicio p{
+  color:white;
+}
+
+body.dark .servicio{
+  background:#222;
+}
+
+body.dark .contact-card{
+  background:rgba(255,255,255,0.04);
+}
+
+body.dark footer{
+  background:#000;
+}
+
+@media(max-width:1200px){
+
+  .servicios-grid{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .contacto-grid{
+    grid-template-columns:1fr 1fr;
+  }
+
+}
+
+}
+
+@media(max-width:700px){
+
+  .servicios-grid,
+  .contacto-grid{
+    grid-template-columns:1fr;
+  }
+
+  .hero h1{
+    font-size:52px;
+  }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+  <div class="logo">
+    <img src="C:/Users/guill/Downloads/Construcciones-Carrillo/logo.png">
+  </div>
+
+  <nav>
+
+    <a href="index.html">Inicio</a>
+    <a href="banos.html">Baños</a>
+    <a href="cocinas.html">Cocinas</a>
+    <a href="pladur.html">Pladur</a>
+    <a href="contacto.html">Contacto</a>
+
+    <label class="switch">
+      <input type="checkbox" id="toggle">
+      <span class="slider"></span>
+    </label>
+
+  </nav>
+
+</header>
+
+
+
+<section class="mini-hero">
+
+  <h1>
+    Reformas
+  </h1>
+
+  <p>
+    Reformas integrales, baños, cocinas, pladur y acabados profesionales con máxima calidad y experiencia.
+  </p>
+
+</section>
+
+<section class="info-reformas">
+
+  <h2>
+    Especialistas en reformas integrales y parciales
+  </h2>
+
+  <p class="section-text">
+    En Construcciones Carrillo realizamos reformas completas adaptadas a las necesidades de cada cliente. Nuestro equipo combina experiencia, profesionalidad y materiales de calidad para conseguir resultados modernos, duraderos y funcionales.
+  </p>
+
+</section>
+
+<section class="servicios">
+
+  <h2>Qué reformas realizamos</h2>
+
+  <div class="servicios-grid">
+
+    <div class="servicio">
+      <i class="fa-solid fa-house"></i>
+      <h3>Reformas integrales</h3>
+      <p>Transformamos completamente viviendas y locales desde cero.</p>
+    </div>
+
+    <div class="servicio">
+      <i class="fa-solid fa-kitchen-set"></i>
+      <h3>Cocinas modernas</h3>
+      <p>Diseños funcionales y acabados premium para tu cocina ideal.</p>
+    </div>
+
+    <div class="servicio">
+      <i class="fa-solid fa-bath"></i>
+      <h3>Baños</h3>
+      <p>Renovación de baños con soluciones modernas y elegantes.</p>
+    </div>
+
+    <div class="servicio">
+      <i class="fa-solid fa-border-all"></i>
+      <h3>Pladur</h3>
+      <p>Divisiones, techos y estructuras de pladur de alta calidad.</p>
+    </div>
+
+    <div class="servicio">
+      <i class="fa-solid fa-paint-roller"></i>
+      <h3>Pintura y acabados</h3>
+      <p>Acabados limpios y profesionales para un resultado perfecto.</p>
+    </div>
+
+    <div class="servicio">
+      <i class="fa-solid fa-layer-group"></i>
+      <h3>Suelos y alicatados</h3>
+      <p>Instalación de suelos modernos y revestimientos resistentes.</p>
+    </div>
+
+  </div>
+
+</section>
+
+<section class="contacto" id="contacto">
+
+  <h2>Dónde encontrarnos</h2>
+
+  <div class="contacto-grid">
+
+    <div class="contact-card">
+
+      <i class="fa-solid fa-envelope"></i>
+
+      <h3>Correo electrónico</h3>
+
+      <p>
+        construccionesccarrillo@gmail.com
+      </p>
+
+    </div>
+
+    <div class="contact-card">
+
+      <i class="fa-solid fa-phone"></i>
+
+      <h3>Teléfono</h3>
+
+      <p>
+        627 19 00 80
+      </p>
+
+    </div>
+
+    <div class="contact-card">
+
+      <i class="fa-solid fa-location-dot"></i>
+
+      <h3>Ubicación</h3>
+
+      <p>
+        Avenida Castilla-La Mancha nº 7<br>
+        Calera y Chozas · Toledo · 45686
+      </p>
+
+    </div>
+
+    <div class="contact-card">
+
+      <i class="fa-solid fa-share-nodes"></i>
+
+      <h3>Redes sociales</h3>
+
+      <div class="socials">
+
+        <a href="https://www.facebook.com/construccionesccarrillo" target="_blank">
+          <i class="fa-brands fa-facebook-f"></i>
+        </a>
+
+        <a href="https://www.instagram.com/construccionesccarrillo/" target="_blank">
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<footer>
+
+  <p>
+    © 2026 Construcciones Carrillo · Todos los derechos reservados
+  </p>
+
+</footer>
+
+<script>
+
+const toggle = document.getElementById("toggle");
+
+toggle.addEventListener("change", () => {
+  document.body.classList.toggle("dark");
+});
+
+</script>
+
+</body>
+</html>

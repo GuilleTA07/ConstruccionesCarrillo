@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Contacto | Construcciones Carrillo</title>
+
+<link rel="icon" href="C:/Users/guill/Downloads/Construcciones-Carrillo/logo.png">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial, Helvetica, sans-serif;
+  transition:
+  background-color 0.45s ease,
+  background 0.45s ease,
+  color 0.45s ease,
+  border-color 0.45s ease,
+  box-shadow 0.45s ease,
+  transform 0.45s ease;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  background:#f5f5f5;
+  overflow-x:hidden;
+}
+
+header{
+  width:100%;
+  height:95px;
+  background:rgba(255,255,255,0.95);
+  backdrop-filter:blur(10px);
+  border-bottom:2px solid rgba(11,33,73,0.08);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 70px;
+  position:fixed;
+  top:0;
+  z-index:1000;
+}
+
+.logo img{
+  height:72px;
+}
+
+nav{
+  display:flex;
+  align-items:center;
+  gap:35px;
+}
+
+nav a{
+  text-decoration:none;
+  color:#0b2149;
+  font-weight:700;
+  font-size:17px;
+  position:relative;
+}
+
+nav a::after{
+  content:"";
+  position:absolute;
+  width:0%;
+  height:2px;
+  left:0;
+  bottom:-6px;
+  background:#d4a017;
+}
+
+nav a:hover{
+  color:#d4a017;
+}
+
+nav a:hover::after{
+  width:100%;
+}
+
+.switch{
+  position:relative;
+  width:68px;
+  height:35px;
+}
+
+.switch input{
+  display:none;
+}
+
+.slider{
+  position:absolute;
+  inset:0;
+  background:#0b2149;
+  border-radius:50px;
+  cursor:pointer;
+}
+
+.slider::before{
+  content:"🌙";
+  position:absolute;
+  width:29px;
+  height:29px;
+  top:3px;
+  left:3px;
+  background:white;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:
+  transform 0.45s cubic-bezier(.68,-0.55,.27,1.55),
+  background 0.3s ease;
+}
+
+input:checked + .slider{
+  background:#d4a017;
+}
+
+input:checked + .slider::before{
+  transform:translateX(33px) rotate(360deg);
+  content:"☀️";
+}
+
+.contacto{
+  min-height:100vh;
+  background:
+  linear-gradient(rgba(11,33,73,0.92), rgba(11,33,73,0.96)),
+  url("contacto.jpg");
+  background-size:cover;
+  background-position:center;
+  color:white;
+  padding:190px 12% 120px 12%;
+}
+
+.contacto h1{
+  text-align:center;
+  font-size:58px;
+  margin-bottom:20px;
+}
+
+.contacto p{
+  text-align:center;
+  font-size:20px;
+  color:#d7d7d7;
+  margin-bottom:70px;
+}
+
+.contact-form{
+  display:flex;
+  flex-direction:column;
+  gap:24px;
+  max-width:900px;
+  margin:auto;
+}
+
+.contact-form input{
+  width:100%;
+  padding:20px 24px;
+  border:none;
+  border-radius:20px;
+  background:rgba(255,255,255,0.08);
+  color:white;
+  font-size:17px;
+  outline:none;
+  border:1px solid rgba(255,255,255,0.12);
+  backdrop-filter:blur(10px);
+}
+
+.contact-form input::placeholder{
+  color:#d7d7d7;
+}
+
+.contact-form button{
+  padding:20px;
+  border:none;
+  border-radius:20px;
+  background:#d4a017;
+  color:#0b2149;
+  font-size:18px;
+  font-weight:700;
+  cursor:pointer;
+}
+
+.contact-form button:hover{
+  transform:translateY(-5px);
+  box-shadow:0 10px 30px rgba(212,160,23,0.4);
+}
+
+body.dark{
+  background:#050505;
+}
+
+body.dark header{
+  background:rgba(5,5,5,0.95);
+}
+
+body.dark nav a{
+  color:#f1f1f1;
+}
+
+body.dark .contact-form input{
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.08);
+}
+
+@media(max-width:900px){
+
+  header{
+    padding:0 25px;
+  }
+
+  nav{
+    gap:18px;
+  }
+
+  nav a{
+    font-size:15px;
+  }
+
+}
+
+@media(max-width:700px){
+
+  header{
+    flex-direction:column;
+    height:auto;
+    padding:20px;
+    gap:20px;
+  }
+
+  nav{
+    flex-wrap:wrap;
+    justify-content:center;
+  }
+
+  .contacto{
+    padding-top:260px;
+  }
+
+  .contacto h1{
+    font-size:42px;
+  }
+
+  .contacto p{
+    font-size:18px;
+  }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+  <div class="logo">
+    <img src="C:/Users/guill/Downloads/Construcciones-Carrillo/logo.png">
+  </div>
+
+  <nav>
+
+    <a href="reformas.html">Reformas</a>
+    <a href="banos.html">Baños</a>
+    <a href="cocinas.html">Cocinas</a>
+    <a href="pladur.html">Pladur</a>
+    <a href="index.html">Inicio</a>
+
+    <label class="switch">
+      <input type="checkbox" id="toggle">
+      <span class="slider"></span>
+    </label>
+
+  </nav>
+
+</header>
+
+<section class="contacto">
+
+  <h1>Contacto</h1>
+
+  <p>
+    Solicita información o presupuesto sin compromiso.
+  </p>
+
+  <form
+    action="https://formsubmit.co/construccionesccarrillo@gmail.com"
+    method="POST"
+    class="contact-form"
+  >
+
+    <input
+      type="hidden"
+      name="_captcha"
+      value="false"
+    >
+
+    <input
+      type="hidden"
+      name="_subject"
+      value="Nuevo cliente desde la web"
+    >
+
+    <input
+      type="text"
+      name="nombre"
+      placeholder="Nombre"
+      required
+    >
+
+    <input
+      type="tel"
+      name="telefono"
+      placeholder="Teléfono"
+      required
+    >
+
+    <input
+      type="email"
+      name="email"
+      placeholder="Correo electrónico"
+      required
+    >
+
+    <input
+      type="text"
+      name="servicio"
+      placeholder="Servicio que necesitas"
+      required
+    >
+
+    <button type="submit">
+      Enviar
+    </button>
+
+  </form>
+
+</section>
+
+<script>
+
+const toggle = document.getElementById("toggle");
+
+toggle.addEventListener("change", () => {
+  document.body.classList.toggle("dark");
+});
+
+</script>
+
+</body>
+</html>
